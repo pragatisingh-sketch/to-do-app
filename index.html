@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Todo</title>
+  <style>
+    body {
+      font-family: Arial;
+      max-width: 500px;
+      margin: 50px auto;
+    }
+    li {
+      cursor: pointer;
+      margin: 8px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Todo App</h2>
+
+  <input type="text" id="taskInput" placeholder="Enter task">
+  <button onclick="addTask()">Add</button>
+
+  <ul id="taskList"></ul>
+
+  <script>
+    function addTask() {
+      const input = document.getElementById("taskInput");
+      if (input.value.trim() === "") return;
+
+      const li = document.createElement("li");
+      li.textContent = input.value;
+
+      li.onclick = function () {
+        this.remove();
+      };
+
+      document.getElementById("taskList").appendChild(li);
+      input.value = "";
+    }
+  </script>
+
+</body>
+</html>
